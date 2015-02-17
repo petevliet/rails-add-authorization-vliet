@@ -8,7 +8,7 @@ class ClubsController < ApplicationController
   def show
     @club = Club.find(params[:id])
       if !@club.students.find_by_id(current_student.id)
-        render 'public/403.html'
+        render 'public/403', status: 403
       end
   end
 
